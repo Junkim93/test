@@ -2,25 +2,25 @@
   <section class="l-statistic-info">
     <AppTitle :label="title" />
     <StackToggleTab @chart-type="setType" />
-    <StackBarChart
+    <!-- <StackBarChart
       v-if="isStatisticLoaded"
       :key="rerenderIndex"
       :statistic="statistic"
       :height="chartHeight"
-    />
+    /> -->
   </section>
 </template>
 
 <script>
 import AppTitle from '@/components/elements/AppTitle.vue';
 import StackToggleTab from '@/components/blocks/stack-toggle-tab/StackToggleTab.vue';
-import StackBarChart from '@/components/blocks/stack-bar-chart/StackBarChart.vue';
-import { mapActions, mapState, mapGetters } from 'vuex';
+// import StackBarChart from '@/components/blocks/stack-bar-chart/StackBarChart.vue';
+// import { mapActions, mapState, mapGetters } from 'vuex';
 export default {
   components: {
     AppTitle,
     StackToggleTab,
-    StackBarChart,
+    // StackBarChart,
   },
   data() {
     return {
@@ -30,23 +30,23 @@ export default {
     };
   },
   computed: {
-    ...mapState('statistic', ['statistics']),
-    ...mapGetters({ 'getSpecificStatistic': 'statistic/getSpecificStatistic' }),
-    statistic() {
-      return this.getSpecificStatistic(this.type);
-    },
+    // ...mapState('statistic', ['statistics']),
+    // ...mapGetters({ 'getSpecificStatistic': 'statistic/getSpecificStatistic' }),
+    // statistic() {
+    //   return this.getSpecificStatistic(this.type);
+    // },
     chartHeight() {
       return this.statistic.labels.length * 25;
     },
-    isStatisticLoaded() {
-      return this.statistics !== '' ? true : false;
-    },
+    // isStatisticLoaded() {
+    //   return this.statistics !== '' ? true : false;
+    // },
   },
   created() {
-    this.setStatistics();
+    // this.setStatistics();
   },
   methods: {
-    ...mapActions({ 'setStatistics': 'statistic/setStatistics' }),
+    // ...mapActions({ 'setStatistics': 'statistic/setStatistics' }),
     setType(type) {
       this.type = type;
       this.rerenderIndex += 1;
