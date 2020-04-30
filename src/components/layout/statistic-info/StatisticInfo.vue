@@ -2,25 +2,30 @@
   <section class="l-statistic-info">
     <AppTitle :label="title" />
     <StackToggleTab @chart-type="setType" />
-    <!-- <StackBarChart
-      v-if="isStatisticLoaded"
+    <StackBarChart
       :key="rerenderIndex"
       :statistic="statistic"
       :height="chartHeight"
-    /> -->
+    />
   </section>
 </template>
 
 <script>
 import AppTitle from '@/components/elements/AppTitle.vue';
 import StackToggleTab from '@/components/blocks/stack-toggle-tab/StackToggleTab.vue';
-// import StackBarChart from '@/components/blocks/stack-bar-chart/StackBarChart.vue';
+import StackBarChart from '@/components/blocks/stack-bar-chart/StackBarChart.vue';
+import mockData from '@/mockData.js';
 // import { mapActions, mapState, mapGetters } from 'vuex';
+
+      // v-if="isStatisticLoaded"
+      // :key="rerenderIndex"
+      // :statistic="statistic"
+      // :height="chartHeight"
 export default {
   components: {
     AppTitle,
     StackToggleTab,
-    // StackBarChart,
+    StackBarChart,
   },
   data() {
     return {
@@ -35,6 +40,13 @@ export default {
     // statistic() {
     //   return this.getSpecificStatistic(this.type);
     // },
+    statistic() {
+      // Mock
+      const test = mockData.filter(el => {
+        return el.type === this.type;
+      });
+      return test[0];
+    },
     chartHeight() {
       return this.statistic.labels.length * 25;
     },

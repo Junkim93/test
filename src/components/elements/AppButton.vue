@@ -1,7 +1,7 @@
 <template>
   <button
     :class="`e-button--${btnClass}`"
-    @click="$emit('button-click')"
+    @click.prevent="$emit('button-click')"
   >
     <span>●</span>
     <span>{{ label }}</span>

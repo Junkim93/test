@@ -10,11 +10,11 @@
         <dl>
           <dt>{{ category.title }}</dt>
           <div>
-            <dd 
+            <dd
               v-for="(tab, index) in category.tabs"
               :key="tab.title"
               class="b-stack-filter-option"
-            > 
+            >
               <AppButton
                 :btn-class="tab.type"
                 :class="`b-stack-tab-btns--toggle-${index + 1}`"
@@ -71,10 +71,9 @@ export default {
           ],
         }
       ],
-      
+
     };
-  }, 
-  
+  },
 };
 </script>
 
