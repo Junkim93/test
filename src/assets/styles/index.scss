@@ -1,0 +1,32 @@
+@charset 'utf-8';
+
+@import 'utils/variables';
+@import 'utils/mixins';
+
+@import 'base/reset';
+
+body {
+  background-color: #F2F3F6;
+  min-width: 320px;
+  overflow-y: auto;
+}
+
+// Small devices (landscape phones, 576px and up)
+@include respond-above(xs) {
+  
+}
+
+// Medium devices (tablets, 768px and up)
+@include respond-above(sm) {
+  
+}
+
+// Large devices (desktops, 992px and up)
+@include respond-above(md) {
+  
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@include respond-above(lg) {
+  
+}
